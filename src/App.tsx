@@ -1,6 +1,11 @@
-const App = (): JSX.Element => {
+import {Login} from "./components/Login.tsx";
+import './css/reset.css';
+
+function App() {
   return (
-      <h1>Finance flow app</h1>
+      <div>
+        <Login/>
+      </div>
   )
 }
 
