@@ -42,6 +42,11 @@ export function HomePage() {
             const response  = crearUsuarioAPI.crearUsuario();
             response.then((res) => {
                 alert(res.data.messages[0].content);
+                setNombre("");
+                setApellido("");
+                setCorreo("");
+                setContrasena("");
+                setConfirmContrasena("");
             }).catch((err) => {
                 if (err.response.data.messages){
                     alert(err.response.data.messages[0].content);
@@ -54,7 +59,7 @@ export function HomePage() {
 
     return (
         <div className="homepage">
-            <nav className="homepage_nav">
+            <header className="homepage_nav">
                 <div className="izquierda">
                     <a href="/">
                         <img src={logoImage} alt="Logo de finanzas" className="logoFinazas"/>
@@ -64,7 +69,7 @@ export function HomePage() {
                 <div className="derecha">
                     <a href="/login">Iniciar sesión</a>
                 </div>
-            </nav>
+            </header>
             <section className="content">
                 <div className="registro">
                     <h1>¡Registrate!</h1>

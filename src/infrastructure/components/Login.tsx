@@ -1,11 +1,14 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import eyeOpen from "../assets/img/open-eye.svg";
 import eyeClosed from "../assets/img/close-eye.svg";
 import oink from "../assets/img/oink.svg";
 import {UsuarioDTO} from "../http/dto/UsuarioDTO.ts";
 import {IngresarUsuarioAPI} from "../http/api/usuario/IngresarUsuarioAPI.ts";
 
+
 export function Login(){
+    let navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [correo, setCorreo] = useState("");
     const [contrasena, setContrasena] = useState("");
@@ -32,14 +35,15 @@ export function Login(){
         const loginUsuarioAPI = new IngresarUsuarioAPI(usuario);
         const response = loginUsuarioAPI.ingresarUsuario();
         response.then((res) => {
-            alert(res.data.messages[0].content);
+            console.log(res.data.messages[0].level);
         }).catch((err) => {
             if (err.response.data.messages){
-                alert(err.response.data.messages[0].content);
+                console.log(err.response.data.messages[0].level);
             }else {
                 console.log(err);
             }
         });
+        navigate('/dashboard', { state: { user: "Jhon Doe" }, replace: true });
     }
 
     return (
@@ -73,12 +77,12 @@ export function Login(){
                                     className="registro__form__input"
                                     type={showPassword ? "text" : "password"}
                                     name="contrasena"
-                                    placeholder="Ingresa una contrasena"
+                                    placeholder="Ingresa tu contrasena"
                                     required={true}
                                     value={contrasena}
                                     onChange={e => setContrasena(e.target.value)}
                                     onInvalid={(e) => {
-                                        (e.target as HTMLInputElement).setCustomValidity("Por favor, ingresa tu nueva contrasena");
+                                        (e.target as HTMLInputElement).setCustomValidity("Por favor, ingresa tu contrasena");
                                     }}
                                     onInput={(e) => {
                                         (e.target as HTMLInputElement).setCustomValidity("");

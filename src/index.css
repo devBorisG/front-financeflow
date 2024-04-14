@@ -2,3 +2,6 @@
 @import url('./infrastructure/css/root.css');
 @import url('infrastructure/css/homepage/homepage.css');
 @import url('infrastructure/css/login/login.css');
+@import url('infrastructure/css/header/header.css');
+@import url('infrastructure/css/navigatebar/navigatebar.css');
+@import url('infrastructure/css/userinfo/userinfo.css');

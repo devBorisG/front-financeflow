@@ -1,0 +1,18 @@
+.header__izquierda{
+    height: 100%;
+    width: 400px;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+}
+
+.header__izquierda > a{
+    width: 50px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.header__izquierda > h1{
+    font-size: 2rem;
+    margin-left: 10px;
+}

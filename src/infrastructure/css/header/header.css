@@ -1,0 +1,16 @@
+@import url('bem/header-menu.css');
+@import url('bem/header-container.css');
+@import url('bem/header-izquierda.css');
+@import url('bem/header-derecha.css');
+
+header{
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background: var(--color-primario);
+    height: 15px;
+    color: var(--color-fuente-primario);
+    font-family: var(--fuente-contenido);
+    position: relative;
+    z-index: 2;
+}
