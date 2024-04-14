@@ -1,0 +1,10 @@
+/* Path: src/infrastructure/css/login/bem/registro-form.css */
+.registro__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-fuente-primario);
+    font-family: var(--fuente-contenido);
+    border-radius: 12rem;
+}

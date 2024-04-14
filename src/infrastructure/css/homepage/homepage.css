@@ -1,0 +1,19 @@
+/* Path: src/infrastructure/css/login/homepage.css */
+/* Importaciones de todos los estilos para login */
+@import url('bem/registro-form.css');
+@import url('bem/registro-form-input.css');
+@import url('bem/registro-form-label.css');
+@import url('bem/registro-form-button.css');
+@import url('bem/contrasena-container.css');
+@import url('bem/homepage_nav.css');
+@import url('bem/registro.css');
+@import url('bem/content.css');
+@import url('bem/container.css');
+@import url('bem/registro-link.css');
+
+.homepage{
+    background-color: var(--color-secundario);
+    font-family: var(--fuente-contenido);
+    height: 100vh;
+    width: 100%;
+}

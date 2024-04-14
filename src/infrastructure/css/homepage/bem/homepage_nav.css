@@ -1,0 +1,42 @@
+.homepage_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+    background-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.izquierda{
+    display: flex;
+    align-items: center; /* Centra los elementos hijos verticalmente */
+    height: 100%;
+}
+
+.izquierda > h1{
+    font-size: 2.2rem;
+    color: var(--color-fuente-primario);
+}
+
+.logoFinazas{
+    width: 90%; /* Ajusta esto a la anchura deseada */
+    height: 80px; /* Ajusta esto a la altura deseada */
+}
+
+.derecha{
+    display: flex;
+    align-items: center; /* Centra los elementos hijos verticalmente */
+}
+
+.derecha > a{
+    color: var(--color-fuente-primario);
+    text-decoration: underline;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.derecha > a:hover{
+    transform: scale(1.1);
+}

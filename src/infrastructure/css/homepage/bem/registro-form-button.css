@@ -1,0 +1,30 @@
+/* Path: src/infrastructure/css/login/bem/registro-form-button.css */
+.registro__form__button{
+    width: auto;
+    padding: 0.5rem;
+    font-size: 0.98rem;
+    background-color: var(--color-primario);
+    color: var(--color-fuente-primario);
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-family: var(--fuente-contenido);
+    transition: backgorund 0.5s
+}
+
+.registro__form__button:hover{
+    background: radial-gradient(circle at center, #342e75, var(--color-primario));
+    animation: fillButton 1s forwards;
+    transform: scale(1.2);
+}
+
+@keyframes fillButton {
+    0% {
+        background-size: 200% 200%;
+        background-position: 50% 50%;
+    }
+    100% {
+        background-size: 100% 100%;
+        background-position: 0 0;
+    }
+}

@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.container > img{
+    width: 60%;
+    height: auto;
+}
+
+.container > h1{
+    font-size: 7.5rem;
+    margin: 1rem 0;
+    color: var(--color-cuaternario);
+    text-shadow: -4px 0 var(--color-primario), 0 4px var(--color-primario), 4px 0 var(--color-primario), 0 -4px var(--color-primario);
+}
+
+.container > p {
+    font-size: 1.4rem;
+}

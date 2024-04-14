@@ -1,0 +1,13 @@
+@import url('bem/oink.css');
+
+.login{
+    background-image: url('../../assets/img/persona-login.svg'); /* Reemplaza con la ruta a tu imagen */
+    background-size: 55% auto; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: 500px center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat;
+    backdrop-filter: blur(100px);
+    background-color: var(--color-secundario);
+    font-family: var(--fuente-contenido);
+    height: 100vh;
+    width: 100%;
+}

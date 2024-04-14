@@ -1,0 +1,17 @@
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 700px;
+    border-radius: 0.8rem;
+    background-color: var(--color-cuaternario);
+    box-shadow: 14px 10px 21px rgba(0, 0, 0, 0.28);
+}
+
+.registro > h1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--color-fuente-primario);
+}

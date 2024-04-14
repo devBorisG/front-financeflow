@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Fredoka';
+    src: url('../assets/fonts/Fredoka-Regular.ttf') format('truetype');
+}
+
+:root{
+    --fuente-contenido: 'Fredoka', sans-serif;
+    --color-primario: #1C1678;
+    --color-secundario: #ECF7FF;
+    --color-terciario: #92E3A9;
+    --color-cuaternario: #3B3593;
+    --color-fuente-primario: #ffff;
+    --color-fuente-secundario: #000;
+}
