@@ -36,14 +36,15 @@ export function Login(){
         const response = loginUsuarioAPI.ingresarUsuario();
         response.then((res) => {
             console.log(res.data.messages[0].level);
+            navigate('/dashboard', { state: { user: "Jhon Doe" }, replace: true });
         }).catch((err) => {
             if (err.response.data.messages){
                 console.log(err.response.data.messages[0].level);
+                console.log(err.response.data.messages[0].content);
             }else {
                 console.log(err);
             }
         });
-        navigate('/dashboard', { state: { user: "Jhon Doe" }, replace: true });
     }
 
     return (

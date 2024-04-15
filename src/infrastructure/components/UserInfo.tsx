@@ -9,7 +9,7 @@ export const UserInfo = ( { show }: UserInfoProps) =>{
         <div className={show ? 'popup active' : 'popup'}>
             <ul className="lista__usuario">
                 <li className="item__usuario">
-                    <Link to="/dashboard">
+                    <Link to="/user">
                         Información de la cuenta
                     </Link>
                 </li>

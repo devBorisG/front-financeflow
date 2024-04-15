@@ -6,6 +6,7 @@ import {DashBoard} from "./infrastructure/components/DashBoard.tsx";
 import {Goals} from "./infrastructure/components/Goals.tsx";
 import {Budgets} from "./infrastructure/components/Budgets.tsx";
 import {Statistics} from "./infrastructure/components/Statistics.tsx";
+import {User} from "./infrastructure/components/User.tsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path="/goals" element={<Goals />} />
               <Route path="/budgets" element={<Budgets />} />
               <Route path="/statistics" element={<Statistics />} />
+              <Route path="/user" element={<User />} />
               <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
       </BrowserRouter>
