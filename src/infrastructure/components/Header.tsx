@@ -4,7 +4,7 @@ import {NavigateBar} from "./NavigateBar.tsx";
 import logoImage from '../assets/finance.svg';
 import { FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
-import {UserInfo} from "./UserInfo.tsx";
+import {UserInfo} from "./user/UserInfo.tsx";
 
 export function Header() {
     const [showNav, setShowNav] = useState(false);

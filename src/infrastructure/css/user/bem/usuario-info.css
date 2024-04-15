@@ -1,0 +1,11 @@
+.usuario__info{
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.usuario__info > h2{
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}

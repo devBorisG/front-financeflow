@@ -5,10 +5,11 @@ import eyeClosed from "../assets/img/close-eye.svg";
 import oink from "../assets/img/oink.svg";
 import {UsuarioDTO} from "../http/dto/UsuarioDTO.ts";
 import {IngresarUsuarioAPI} from "../http/api/usuario/IngresarUsuarioAPI.ts";
-
+import {UserContext} from "./UserContext.tsx";
 
 export function Login(){
     let navigate = useNavigate();
+    const {setUser} = React.useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
     const [correo, setCorreo] = useState("");
     const [contrasena, setContrasena] = useState("");
@@ -25,6 +26,15 @@ export function Login(){
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+
+        const fakeUser = new UsuarioDTO({
+            id: "123",
+            nombre: "Doctor",
+            apellido: "House",
+            correo: "fakeuser@example.com",
+            contrasena: "fakepassword",
+        });
+
         const usuario = new UsuarioDTO({
             id: "",
             nombre: "",
@@ -36,7 +46,6 @@ export function Login(){
         const response = loginUsuarioAPI.ingresarUsuario();
         response.then((res) => {
             console.log(res.data.messages[0].level);
-            navigate('/dashboard', { state: { user: "Jhon Doe" }, replace: true });
         }).catch((err) => {
             if (err.response.data.messages){
                 console.log(err.response.data.messages[0].level);
@@ -45,6 +54,8 @@ export function Login(){
                 console.log(err);
             }
         });
+        setUser(fakeUser);
+        navigate('/dashboard', { state: { user: "Jhon Doe" }, replace: true });
     }
 
     return (

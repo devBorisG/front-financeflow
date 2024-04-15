@@ -1,5 +1,21 @@
 @import url("bem/usuario-container.css");
+@import url("bem/usuario-info.css");
+@import url("bem/usuario-data.css");
+@import url("bem/usuario-block.css");
+@import url("bem/usuario-buttons.css");
+@import url("bem/usuario-button.css");
 
 .usuario{
     background-color: #f5f5f5f5;
+    font-family: var(--fuente-contenido);
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario > h1{
+    margin-top: 80px;
+    text-align: center;
+    font-size: 3rem;
 }

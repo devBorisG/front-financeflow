@@ -1,0 +1,25 @@
+.usuario__button{
+    border: 2px solid var(--color-primario);
+    padding: 10px 8px;
+    margin: 5px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: var(--fuente-contenido);
+    background-color: var(--color-cuaternario);
+    color: var(--color-fuente-primario);
+    font-size: 0.9rem;
+}
+
+.usuario__button:hover{
+    background-color: var(--color-primario);
+}
+
+.button__eliminar{
+    background-color: #b41f26;
+    border: 2px solid #731517;
+}
+
+.button__eliminar:hover{
+    background-color: #731517;
+}
+

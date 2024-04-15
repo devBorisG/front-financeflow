@@ -6,15 +6,17 @@ type UserInfoProps = {
 
 export const UserInfo = ( { show }: UserInfoProps) =>{
     return (
-        <div className={show ? 'popup active' : 'popup'}>
+        <div
+            className={show ? 'popup active' : 'popup'}
+        >
             <ul className="lista__usuario">
                 <li className="item__usuario">
                     <Link to="/user">
                         Información de la cuenta
                     </Link>
+                    <li className="item__usuario">
                 </li>
-                <li className="item__usuario">
-                    <Link to="/dashboard">
+                    <Link to="/">
                         Cerrar Sesión
                     </Link>
                 </li>

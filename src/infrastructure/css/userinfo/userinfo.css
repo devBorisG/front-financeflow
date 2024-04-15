@@ -11,6 +11,7 @@
     color: var(--color-fuente-primario);
     font-family: var(--fuente-contenido);
     z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 .popup.active{

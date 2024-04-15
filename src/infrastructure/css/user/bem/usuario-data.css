@@ -1,0 +1,9 @@
+.usuario__data{
+    display: flex;
+    margin: 40px;
+}
+
+.usuario__data > *{
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
