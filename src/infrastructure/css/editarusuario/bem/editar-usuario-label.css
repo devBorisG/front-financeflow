@@ -1,0 +1,6 @@
+.editar-usuario__label{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-size: 1.3rem;
+}

@@ -1,0 +1,21 @@
+@import url('bem/editar-usuario-titulo.css');
+@import url('bem/editar-usuario-formulario.css');
+@import url('bem/editar-usuario-label.css');
+@import url('bem/editar-usuario-input.css');
+@import url('bem/editar-usuario-button.css');
+
+.editar-usuario{
+    position: absolute;
+    background-color: #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}

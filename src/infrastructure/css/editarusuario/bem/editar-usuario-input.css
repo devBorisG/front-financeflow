@@ -1,0 +1,9 @@
+.editar-usuario__input{
+    padding: 8px 10px;
+    width: 15rem;
+    margin: 10px 0;
+    border-radius: 16px;
+    border-style: solid;
+    font-family: var(--fuente-contenido);
+    font-size: 1.1rem;
+}

@@ -7,7 +7,7 @@
     font-family: var(--fuente-contenido);
     background-color: var(--color-cuaternario);
     color: var(--color-fuente-primario);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .usuario__button:hover{

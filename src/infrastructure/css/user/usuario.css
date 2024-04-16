@@ -4,6 +4,7 @@
 @import url("bem/usuario-block.css");
 @import url("bem/usuario-buttons.css");
 @import url("bem/usuario-button.css");
+@import url("bem/usuario-overlay.css");
 
 .usuario{
     background-color: #f5f5f5f5;
