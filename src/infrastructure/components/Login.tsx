@@ -60,7 +60,7 @@ export function Login(){
 
     return (
         <div className="login">
-            <section className="content">
+            <section className="contentLogin">
                 <div className="registro">
                     <h1>Inicia Sesión</h1>
                     <img src={oink} className="oink" alt="Imagen de cerdito"/>

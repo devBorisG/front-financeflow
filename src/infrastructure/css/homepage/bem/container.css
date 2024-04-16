@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    min-width: 40%;
+    position: relative;
 }
 
 .container > img{
@@ -20,4 +21,15 @@
 
 .container > p {
     font-size: 1.4rem;
+}
+
+
+@media screen and (max-width: 1229px){
+    .container > p {
+        margin-bottom: 10px;
+    }
+
+    .container > h1{
+        font-size: 5rem;
+    }
 }
