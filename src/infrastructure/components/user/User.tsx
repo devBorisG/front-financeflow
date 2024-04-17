@@ -3,8 +3,11 @@ import {UserContext} from "../UserContext.tsx";
 import {useContext, useState} from "react";
 import {EditarUsuario} from "../popup/EditarUsuario.tsx";
 import {CambiarContrasena} from "../popup/CambiarContrasena.tsx";
+import {useNavigate} from "react-router-dom";
+import {EliminarUsuarioAPI} from "../../http/api/usuario/EliminarUsuarioAPI.ts";
 
 export function User(){
+    let navigate = useNavigate();
     const {user} = useContext(UserContext);
     const [edit, setEdit] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
@@ -16,6 +19,23 @@ export function User(){
     const handleEditPasswordClick = () => {
         setEditPassword(true);
     };
+
+    const handleDeleteClick = () => {
+        const eliminarUsuarioAPI = new EliminarUsuarioAPI(user ? user.id: "");
+        const response = eliminarUsuarioAPI.eliminarUsuario();
+        response.then((res) => {
+            console.log(res.data.messages[0].level);
+            alert("Cuenta eliminada");
+            navigate('/', { replace: true });
+        }).catch((err) => {
+            if (err.response.data.messages){
+                console.log(err.response.data.messages[0].level);
+                console.log(err.response.data.messages[0].content);
+            }else {
+                console.log(err);
+            }
+        });
+    }
     return (
         <div className="usuario">
             <Header/>
@@ -41,7 +61,7 @@ export function User(){
                 <section className="usuario__buttons">
                     <button className="usuario__button" onClick={handleEditClick}>Editar Información</button>
                     <button className="usuario__button" onClick={handleEditPasswordClick}>Cambiar Contraseña</button>
-                    <button className="usuario__button button__eliminar">Eliminar Cuenta</button>
+                    <button className="usuario__button button__eliminar" onClick={handleDeleteClick}>Eliminar Cuenta</button>
                 </section>
             </div>
             {edit && user ? <EditarUsuario user={user} setEdit={setEdit}/> : null}

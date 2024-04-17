@@ -8,6 +8,7 @@ import {Budgets} from "./infrastructure/components/Budgets.tsx";
 import {Statistics} from "./infrastructure/components/Statistics.tsx";
 import {User} from "./infrastructure/components/user/User.tsx";
 import {UserProvider} from "./infrastructure/components/UserContext.tsx";
+import {Category} from "./infrastructure/components/categorie/Category.tsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/budgets" element={<UserProvider><Budgets /></UserProvider>} />
               <Route path="/statistics" element={<UserProvider><Statistics /></UserProvider>} />
               <Route path="/user" element={<UserProvider><User /></UserProvider>} />
+              <Route path="/categorie" element={<UserProvider><Category /></UserProvider>} />
               <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
       </BrowserRouter>

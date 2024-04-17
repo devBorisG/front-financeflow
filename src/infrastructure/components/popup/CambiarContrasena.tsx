@@ -56,7 +56,10 @@ export function CambiarContrasena({user, setEditPassword}: Readonly<CambiarContr
                         (e.target as HTMLInputElement).setCustomValidity("");
                     }}/>
                 </label>
-                <button className="cambiar-contrasena__button" type="submit">Aceptar</button>
+                <section className="usuario__buttons">
+                    <button className="cambiar-contrasena__button" type="submit">Aceptar</button>
+                    <button className="usuario__button button__eliminar" onClick={handleAcceptClick}>Cancelar</button>
+                </section>
             </form>
         </div>
     );

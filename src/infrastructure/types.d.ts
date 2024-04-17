@@ -6,6 +6,13 @@ export interface Usuario {
     contrasena: string,
 }
 
+export interface Categories{
+    id: string,
+    nombre: string,
+    descripcion: string,
+    usuario: Usuario
+}
+
 export interface BackendResponse {
     data: {
         messages: {

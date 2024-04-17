@@ -4,7 +4,7 @@
     width: 240px;
     background: var(--color-primario);
     position: absolute;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 50px);
     padding: 0 30px;
     left: -100%;
     transition: all 0.3s;

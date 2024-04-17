@@ -22,7 +22,7 @@ export const EditarUsuario = ({user, setEdit}: Readonly<EditarUsarioComponentPro
             id: user.id,
             nombre: nombre,
             apellido: apellido,
-            correo: user.correo,
+            correo: correo,
             contrasena: user.contrasena,
         }));
         const response = actualizarUsuarioAPI.actualizarUsuario();
@@ -90,7 +90,10 @@ export const EditarUsuario = ({user, setEdit}: Readonly<EditarUsarioComponentPro
                     }}
                 />
                 </label>
-                <button type="submit" className="editar-usuario__button">Aceptar</button>
+                <section className="usuario__buttons">
+                    <button type="submit" className="editar-usuario__button">Aceptar</button>
+                    <button className="usuario__button button__eliminar" onClick={handleAcceptClick}>Cancelar</button>
+                </section>
             </form>
         </div>
     );

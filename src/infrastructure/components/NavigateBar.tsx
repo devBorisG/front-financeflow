@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import { FaChartArea, FaDollarSign, FaWallet } from "react-icons/fa";
 import { GoGoal } from "react-icons/go";
+import { MdCategory } from "react-icons/md";
 
 type NavigateBarProps = {
     show: boolean;
@@ -39,6 +40,12 @@ export const NavigateBar = ({ show, setShow }: NavigateBarProps)=>{
                         <Link to="/budgets">
                             <FaDollarSign/>
                             Mis Presupuestos
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/categorie">
+                            <MdCategory/>
+                            Mis categorias
                         </Link>
                     </li>
                     <li>

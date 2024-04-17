@@ -1,12 +1,11 @@
 .editar-usuario__button{
     padding: 10px;
     background-color: var(--color-cuaternario);
-    border: 1px solid var(--color-primario);
+    border: 2px solid var(--color-primario);
     font-size: 1.1rem;
-    border-radius: 8px;
+    border-radius: 16px;
     font-family: var(--fuente-contenido);
     color: #ffffff;
-    margin-top: 30px;
 }
 
 .editar-usuario__button:hover{
