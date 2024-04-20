@@ -1,10 +1,4 @@
-import {Categories as CategoryTypes} from "../../types";
-import {UsuarioDTO} from "../../http/dto/UsuarioDTO.ts";
-
-type CategoriesProps={
-    user: UsuarioDTO | null;
-    categoriesProps: CategoryTypes[];
-};
+import {CategoriesProps} from "../../types/props/CategoriesProps";
 
 export const Categories = ({ user,categoriesProps }: CategoriesProps) => {
     return(

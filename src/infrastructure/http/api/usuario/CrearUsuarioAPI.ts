@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { UsuarioDTO } from "../../dto/UsuarioDTO.ts";
 import { UsuarioAPIRoutes } from "../../routes/UsuarioAPIRoutes.ts";
-import { BackendResponse } from "../../../types";
+import { BackendResponse } from "../../../types/BackendResponse.ts";
 
 export class CrearUsuarioAPI {
     private registrar = UsuarioAPIRoutes.usuario.registrar;

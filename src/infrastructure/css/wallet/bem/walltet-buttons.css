@@ -1,0 +1,10 @@
+.wallet__buttons{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.wallet__buttons button{
+    margin-left: 30px;
+}

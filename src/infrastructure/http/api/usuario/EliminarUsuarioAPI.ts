@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { UsuarioAPIRoutes } from "../../routes/UsuarioAPIRoutes.ts";
-import { BackendResponse } from "../../../types";
+import { BackendResponse } from "../../../types/BackendResponse.ts";
 
 export class EliminarUsuarioAPI{
     private eliminar = UsuarioAPIRoutes.usuario.eliminar;

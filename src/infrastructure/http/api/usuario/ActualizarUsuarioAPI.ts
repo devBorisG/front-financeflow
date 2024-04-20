@@ -1,6 +1,6 @@
 import { UsuarioAPIRoutes } from "../../routes/UsuarioAPIRoutes.ts";
 import {UsuarioDTO} from "../../dto/UsuarioDTO.ts";
-import {BackendResponse} from "../../../types";
+import {BackendResponse} from "../../../types/BackendResponse.ts";
 import axios from "axios";
 
 export class ActualizarUsuarioAPI{

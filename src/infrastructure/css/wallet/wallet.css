@@ -1,0 +1,7 @@
+@import url('./bem/wallet-section.css');
+@import url('./bem/walltet-buttons.css');
+@import url('./bem/wallet-division.css');
+
+.wallet{
+    background-color: #f5f5f5;
+}

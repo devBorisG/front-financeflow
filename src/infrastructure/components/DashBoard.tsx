@@ -1,10 +1,11 @@
 import {Header} from "./Header.tsx";
+import {Wallet} from "./dashboard/Wallet.tsx";
 
 export function DashBoard(){
     return (
         <div>
-            <Header />
-            <h1>Dashboard</h1>
+            <Header/>
+            <Wallet/>
         </div>
     );
 }
