@@ -1,7 +1,7 @@
 .categoria__boton{
     margin-left: 20px;
     border: 2px solid var(--color-primario);
-    padding: 10px 8px;
+    padding: 10px 20px;
     border-radius: 16px;
     cursor: pointer;
     background-color: var(--color-cuaternario);
