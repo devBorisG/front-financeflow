@@ -1,11 +1,11 @@
 import {Header} from "../Header.tsx";
 import {Categories} from "./Categories.tsx";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {UserContext} from "../UserContext.tsx";
 
 export function Category(){
     const {user} = useContext(UserContext);
-
+    const [search, setSearch] = useState("");
     const categories = [
         {
             id: "1",
@@ -72,6 +72,19 @@ export function Category(){
       <div>
           <Header />
           <div className="category__container">
+              <h2 className="categoria__titulo">Categorías</h2>
+              <section className="categorymanagement">
+                  <div className="categoria__acciones">
+                      <button className="categoria__boton">Agregar</button>
+                      <input
+                          className="categoria__buscador"
+                          type="text"
+                          placeholder="Buscar una categoria..."
+                          value={search}
+                          onChange={e => setSearch(e.target.value)}
+                      />
+                  </div>
+              </section>
               <div className="category">
                   <Categories user={user} categoriesProps={categories}/>
               </div>

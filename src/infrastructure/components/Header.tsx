@@ -1,7 +1,7 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import {useState} from "react";
 import {NavigateBar} from "./NavigateBar.tsx";
-import logoImage from '../assets/finance.svg';
+import logoImage from '../../assets/finance.svg';
 import { FaUser } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {UserInfo} from "./user/UserInfo.tsx";

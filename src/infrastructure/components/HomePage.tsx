@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import eyeClosed from '../assets/img/close-eye.svg';
-import eyeOpen from '../assets/img/open-eye.svg';
+import eyeClosed from '../../assets/img/close-eye.svg';
+import eyeOpen from '../../assets/img/open-eye.svg';
 import { UsuarioDTO } from "../http/dto/UsuarioDTO.ts";
 import { RegistrarUsuarioValidator } from "../../service/validator/RegistrarUsuarioValidator.ts";
 import {CrearUsuarioAPI} from "../http/api/usuario/CrearUsuarioAPI.ts";
-import financeImage from '../assets/img/persona-homepage.svg';
-import logoImage from '../assets/finance.svg';
+import financeImage from '../../assets/img/persona-homepage.svg';
+import logoImage from '../../assets/finance.svg';
 
 export function HomePage() {
     const [showPassword, setShowPassword] = useState(false);

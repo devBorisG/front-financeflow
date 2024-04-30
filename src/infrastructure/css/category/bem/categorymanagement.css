@@ -1,0 +1,6 @@
+.categorymanagement{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-contenido), serif;
+    margin-bottom: 30px;
+}

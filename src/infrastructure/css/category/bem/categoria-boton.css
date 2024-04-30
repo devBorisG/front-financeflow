@@ -1,0 +1,14 @@
+.categoria__boton{
+    margin-left: 20px;
+    border: 2px solid var(--color-primario);
+    padding: 10px 8px;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: var(--color-cuaternario);
+    color: var(--color-fuente-primario);
+    font-size: 1.1rem;
+}
+
+.categoria__boton:hover{
+    background-color: var(--color-primario);
+}

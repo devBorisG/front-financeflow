@@ -1,0 +1,7 @@
+.categoria__titulo{
+    font-size: 60px;
+    justify-self: center;
+    padding: 20px 0;
+    font-family: var(--fuente-contenido), serif;
+    text-align: center;
+}

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import eyeOpen from "../assets/img/open-eye.svg";
-import eyeClosed from "../assets/img/close-eye.svg";
-import oink from "../assets/img/oink.svg";
+import eyeOpen from "../../assets/img/open-eye.svg";
+import eyeClosed from "../../assets/img/close-eye.svg";
+import oink from "../../assets/img/oink.svg";
 import {UsuarioDTO} from "../http/dto/UsuarioDTO.ts";
 import {IngresarUsuarioAPI} from "../http/api/usuario/IngresarUsuarioAPI.ts";
 import {UserContext} from "./UserContext.tsx";

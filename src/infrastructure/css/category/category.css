@@ -1,4 +1,9 @@
 @import url('./categories/categories.css');
+@import url('./bem/categorymanagement.css');
+@import url('./bem/categoria-acciones.css');
+@import url('./bem/categoria-boton.css');
+@import url('./bem/categoria-buscador.css');
+@import url('./bem/categoria-titulo.css');
 
 .category{
     display: flex;
