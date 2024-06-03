@@ -4,6 +4,7 @@ import eyeOpen from "../../assets/img/open-eye.svg";
 import eyeClosed from "../../assets/img/close-eye.svg";
 import oink from "../../assets/img/oink.svg";
 import {UsuarioDTO} from "../http/dto/UsuarioDTO.ts";
+import { useCookies } from 'react-cookie';
 import {IngresarUsuarioAPI} from "../http/api/usuario/IngresarUsuarioAPI.ts";
 import {UserContext} from "./UserContext.tsx";
 
@@ -13,6 +14,7 @@ export function Login(){
     const [showPassword, setShowPassword] = useState(false);
     const [correo, setCorreo] = useState("");
     const [contrasena, setContrasena] = useState("");
+    const [, setCookie] = useCookies(['token']);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -27,14 +29,6 @@ export function Login(){
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        const fakeUser = new UsuarioDTO({
-            id: "123",
-            nombre: "Doctor",
-            apellido: "House",
-            correo: "fakeuser@example.com",
-            contrasena: "fakepassword",
-        });
-
         const usuario = new UsuarioDTO({
             id: "",
             nombre: "",
@@ -42,10 +36,18 @@ export function Login(){
             correo: correo,
             contrasena: contrasena,
         });
+
         const loginUsuarioAPI = new IngresarUsuarioAPI(usuario);
         const response = loginUsuarioAPI.ingresarUsuario();
         response.then((res) => {
-            console.log(res.data.messages[0].level);
+            setCookie('token', res.data.token, { path: '/' });
+
+            usuario.id = res.data.data[0].id;
+            usuario.nombre = res.data.data[0].nombre;
+            usuario.apellido = res.data.data[0].apellido;
+
+            setUser(usuario);
+            navigate('/dashboard', { replace: true });
         }).catch((err) => {
             if (err.response.data.messages){
                 console.log(err.response.data.messages[0].level);
@@ -54,8 +56,6 @@ export function Login(){
                 console.log(err);
             }
         });
-        setUser(fakeUser);
-        navigate('/dashboard', { replace: true });
     }
 
     return (

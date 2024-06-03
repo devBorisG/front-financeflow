@@ -11,13 +11,14 @@ export class IngresoDTO implements Ingreso{
     public usuario: UsuarioDTO;
     public categoria:CategoriaDTO;
 
-    constructor(ingreso: IngresoDTO) {
-        this.id = ingreso.id;
-        this.nombre = ingreso.nombre;
-        this.descripcion = ingreso.descripcion;
-        this.monto = ingreso.monto;
-        this.periodicidad = ingreso.periodicidad;
-        this.usuario = ingreso.usuario;
-        this.categoria = ingreso.categoria;
+    constructor(ingreso?: Partial<IngresoDTO>) {
+        this.id = ingreso?.id ?? '';
+        this.nombre = ingreso?.nombre ?? '';
+        this.descripcion = ingreso?.descripcion ?? '';
+        this.monto = ingreso?.monto ?? 0;
+        this.periodicidad = ingreso?.periodicidad ?? 0;
+        this.usuario = ingreso?.usuario || new UsuarioDTO();
+        this.categoria = ingreso?.categoria || new CategoriaDTO();
     }
+
 }

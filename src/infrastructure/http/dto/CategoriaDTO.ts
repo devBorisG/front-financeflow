@@ -7,10 +7,10 @@ export class CategoriaDTO implements Categories{
     public descripcion: string;
     public usuario: UsuarioDTO;
 
-    constructor(categoria: CategoriaDTO) {
-        this.id = categoria.id;
-        this.nombre = categoria.nombre;
-        this.descripcion = categoria.descripcion;
-        this.usuario = categoria.usuario;
+    constructor(categoria?: Partial<CategoriaDTO>) {
+        this.id = categoria?.id ?? '';
+        this.nombre = categoria?.nombre ?? '';
+        this.descripcion = categoria?.descripcion ?? '';
+        this.usuario = categoria?.usuario || new UsuarioDTO();
     }
 }
