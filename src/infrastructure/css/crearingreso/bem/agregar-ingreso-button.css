@@ -1,0 +1,14 @@
+.agregar-ingreso__button{
+    padding: 10px;
+    background-color: var(--color-cuaternario);
+    border: 2px solid var(--color-primario);
+    font-size: 1.1rem;
+    border-radius: 16px;
+    font-family: var(--fuente-contenido), serif;
+    color: #ffffff;
+}
+
+.agregar-ingreso__button:hover{
+    background-color: var(--color-primario);
+    cursor: pointer;
+}

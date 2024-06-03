@@ -43,6 +43,7 @@ export function Income(){
                 <Incomes user={usuarioDTO} ingresoProps={ingresos}/>
             </div>
             {create ? <AgregarIngreso setCreate={setCreate}/> : null}
+            {create ? <div className="usuario__overlay"></div> : null}
         </div>
     );
 }
