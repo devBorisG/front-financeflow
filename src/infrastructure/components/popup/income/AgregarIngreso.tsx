@@ -7,9 +7,10 @@ import {ConsultarCategoriasAPI} from "../../../http/api/categoria/ConsultarCateg
 
 interface CrearIngresoComponentProps{
     setCreate: React.Dispatch<React.SetStateAction<boolean>>;
+    setIngresos: React.Dispatch<React.SetStateAction<IngresoDTO[]>>
 }
 
-export const AgregarIngreso = ({setCreate}: Readonly<CrearIngresoComponentProps>) => {
+export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoComponentProps>) => {
     const [nombre, setNombre] = React.useState("");
     const [descripcion, setDescripcion] = React.useState("");
     const [monto, setMonto] = React.useState(0);
@@ -33,6 +34,10 @@ export const AgregarIngreso = ({setCreate}: Readonly<CrearIngresoComponentProps>
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        if(!categoria){
+            alert("Por favor, selecciona una categoría");
+            return;
+        }
         let user = localStorage.getItem('user');
         if (user) {
             const crearIngresoAPI = new CrearIngresoAPI(new IngresoDTO({
@@ -47,6 +52,7 @@ export const AgregarIngreso = ({setCreate}: Readonly<CrearIngresoComponentProps>
             const response = crearIngresoAPI.crearIngreso();
             response.then((res) => {
                 console.log(res.data.messages[0].level);
+                setIngresos((ingresos) => [...ingresos, res.data.data]);
             }).catch((err) => {
                 if (err.response.data.messages){
                     console.log(err.response.data.messages[0].level);
@@ -134,6 +140,7 @@ export const AgregarIngreso = ({setCreate}: Readonly<CrearIngresoComponentProps>
                         setCategoria(selectedCategoria)
                     }}
                 >
+                    <option value="" disabled selected>Seleccionar categoría</option>
                     {Array.isArray(categorias) && categorias.map((categoria) => (
                         <option key={categoria.id} value={categoria.nombre}>
                             {categoria.nombre}

@@ -2,7 +2,7 @@ import {IngresoProps} from "../../../types/props/IngresoProps";
 import {useState} from "react";
 import {EditarIngreso} from "../../popup/income/EditarIngreso";
 
-export const Incomes = ({ user, ingresoProps }: IngresoProps) => {
+export const Incomes = ({ ingresoProps }: IngresoProps) => {
     if (ingresoProps.length === 0) {
         return <div className="no-content">No tienes ingresos registrados actualmente</div>;
     }else{
@@ -13,7 +13,6 @@ export const Incomes = ({ user, ingresoProps }: IngresoProps) => {
                 const handleEditClick = () => {
                     setEdit(true);
                 };
-
                 // const handleDeleteClick = () => {
                 //     const eliminarIngresoAPI = new EliminarIngresoAPI(ingreso.id);
                 //     const response = eliminarIngresoAPI.eliminarIngreso();
@@ -34,7 +33,7 @@ export const Incomes = ({ user, ingresoProps }: IngresoProps) => {
                         <div className="incomes">
                             <h1>{ingreso.nombre}</h1>
                             <p>{ingreso.descripcion}</p>
-                            <p>{user ? user.nombre : null} {user ? user.apellido : null}</p>
+                            <p>Categoria: {ingreso.categoria.nombre}</p>
                         </div>
                         <button className="income__button" onClick={handleEditClick}>Editar</button>
                         {edit ? <EditarIngreso ingreso={ingreso} setEdit={setEdit}/> : null}

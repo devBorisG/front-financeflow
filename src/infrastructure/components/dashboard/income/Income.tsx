@@ -15,6 +15,7 @@ export function Income(){
 
     let usuarioDTO: UsuarioDTO = new UsuarioDTO();
     let user = localStorage.getItem('user');
+
     if (user) {
         usuarioDTO = new UsuarioDTO(JSON.parse(user));
         useEffect(() => {
@@ -40,9 +41,9 @@ export function Income(){
         <div>
             <button className="registro__form__button" onClick={handleCreateClick}>Agregar Ingreso</button>
             <div className="income">
-                <Incomes user={usuarioDTO} ingresoProps={ingresos}/>
+                <Incomes ingresoProps={ingresos}/>
             </div>
-            {create ? <AgregarIngreso setCreate={setCreate}/> : null}
+            {create ? <AgregarIngreso setCreate={setCreate} setIngresos={setIngresos}/> : null}
             {create ? <div className="usuario__overlay"></div> : null}
         </div>
     );
