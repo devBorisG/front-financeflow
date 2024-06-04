@@ -51,8 +51,9 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
             }));
             const response = crearIngresoAPI.crearIngreso();
             response.then((res) => {
-                console.log(res.data.messages[0].level);
-                setIngresos((ingresos) => [...ingresos, res.data.data]);
+                console.log(res.data.data[0]);
+                const newIngreso = res.data.data[0];
+                setIngresos((ingresos: IngresoDTO[]) => [...ingresos, newIngreso] as IngresoDTO[]);
             }).catch((err) => {
                 if (err.response.data.messages){
                     console.log(err.response.data.messages[0].level);

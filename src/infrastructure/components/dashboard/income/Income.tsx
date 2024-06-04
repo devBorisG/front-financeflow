@@ -15,10 +15,12 @@ export function Income(){
 
     let usuarioDTO: UsuarioDTO = new UsuarioDTO();
     let user = localStorage.getItem('user');
-
     if (user) {
         usuarioDTO = new UsuarioDTO(JSON.parse(user));
-        useEffect(() => {
+    }
+
+    useEffect(() => {
+        if (usuarioDTO?.id) {
             const ingresoAPI = new ConsultarIngresosAPI(usuarioDTO?.id);
             const response = ingresoAPI.consultarIngresos();
             response.then((res) => {
@@ -34,17 +36,18 @@ export function Income(){
                 });
                 setIngresos(ingresoData);
             });
-        }, [user]);
-    }
+        }
+    }, [user]);
 
     return (
-        <div>
-            <button className="registro__form__button" onClick={handleCreateClick}>Agregar Ingreso</button>
-            <div className="income">
-                <Incomes ingresoProps={ingresos}/>
-            </div>
-            {create ? <AgregarIngreso setCreate={setCreate} setIngresos={setIngresos}/> : null}
-            {create ? <div className="usuario__overlay"></div> : null}
+        <div className="income__container">
+                <h2 className="income__titulo">Ingresos</h2>
+                <button className="registro__form__button income__button" onClick={handleCreateClick}>Agregar Ingreso</button>
+                <div className="income">
+                    <Incomes ingresoProps={ingresos}/>
+                </div>
+                {create ? <AgregarIngreso setCreate={setCreate} setIngresos={setIngresos}/> : null}
+                {create ? <div className="usuario__overlay"></div> : null}
         </div>
     );
 }

@@ -1,0 +1,60 @@
+.incomes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 10px 10px 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.incomes > p{
+    text-align: left;
+    margin-top: 15px;
+}
+
+.incomes > h1{
+    font-size: 1.3rem;
+}
+
+.income__card__container:hover{
+    transform: scale(1.1);
+}
+
+.income-card-container {
+    position: relative;
+}
+
+.edit-icon {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+    color: #1C1678;
+    width: 22px;
+    height: 22px;
+}
+
+.edit-icon:hover {
+    color: #1C1678;
+    transform: scale(1.2);
+}
+
+.delete-icon {
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+    color: #b41f26;
+    width: 22px;
+    height: 22px;
+}
+
+.delete-icon:hover {
+    color: #731517;
+    transform: scale(1.2);
+}

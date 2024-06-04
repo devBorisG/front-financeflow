@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    font-family: var(--fuente-contenido);
+    font-family: var(--fuente-contenido), serif;
 }
 
 .category__container{

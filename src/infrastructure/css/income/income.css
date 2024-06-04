@@ -1,0 +1,16 @@
+/* Path: src/infrastructure/css/income/incomes/incomes.css */
+@import url('incomes/incomes.css');
+@import url('bem/income-titulo.css');
+@import url('bem/income-button.css');
+
+.income {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-family: var(--fuente-contenido), serif;
+    padding-top: 0.4rem;
+}
+
+.income__container {
+    background-color: #f5f5f5f5;
+}

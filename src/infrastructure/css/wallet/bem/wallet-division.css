@@ -1,5 +1,4 @@
 .wallet__division{
-    width: 100%;
     margin-left: 30px;
-    font-family: var(--fuente-contenido);
+    font-family: var(--fuente-contenido), serif;
 }
