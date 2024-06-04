@@ -14,7 +14,7 @@ export function Income(){
     };
 
     let usuarioDTO: UsuarioDTO = new UsuarioDTO();
-    let user = localStorage.getItem('user');
+    const user = localStorage.getItem('user');
     if (user) {
         usuarioDTO = new UsuarioDTO(JSON.parse(user));
     }
@@ -24,7 +24,7 @@ export function Income(){
             const ingresoAPI = new ConsultarIngresosAPI(usuarioDTO?.id);
             const response = ingresoAPI.consultarIngresos();
             response.then((res) => {
-                const ingresoData = res.data.data.map((ingresoData: any) => {
+                const ingresoData = res.data.data.map((ingresoData: IngresoDTO) => {
                     const ingreso = new IngresoDTO();
                     ingreso.id = ingresoData.id;
                     ingreso.nombre = ingresoData.nombre;
@@ -37,7 +37,7 @@ export function Income(){
                 setIngresos(ingresoData);
             });
         }
-    }, [user]);
+    }, [user, usuarioDTO?.id]);
 
     return (
         <div className="income__container">

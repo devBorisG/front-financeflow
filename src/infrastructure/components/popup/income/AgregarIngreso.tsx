@@ -19,7 +19,7 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
     const [categorias, setCategorias] = React.useState<CategoriaDTO[]>([]);
 
     useEffect(() => {
-        let user = localStorage.getItem('user');
+        const user = localStorage.getItem('user');
         if (user) {
             const consultarCategoriasAPI = new ConsultarCategoriasAPI(new UsuarioDTO(JSON.parse(user)).id);
             consultarCategoriasAPI.consultarCategorias().then(response => {
@@ -38,7 +38,7 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
             alert("Por favor, selecciona una categoría");
             return;
         }
-        let user = localStorage.getItem('user');
+        const user = localStorage.getItem('user');
         if (user) {
             const crearIngresoAPI = new CrearIngresoAPI(new IngresoDTO({
                 id: '',

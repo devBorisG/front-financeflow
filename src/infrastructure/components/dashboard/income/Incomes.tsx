@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 
 export const Incomes = ({ ingresoProps }: IngresoProps) => {
     const [edit, setEdit] = useState(false);
+    const [editId, setEditId] = useState(0);
     if (ingresoProps.length === 0) {
         return <div className="no-content">No tienes ingresos registrados actualmente</div>;
     }else{
@@ -14,6 +15,7 @@ export const Incomes = ({ ingresoProps }: IngresoProps) => {
 
                 const handleEditClick = () => {
                     setEdit(true);
+                    setEditId(ingreso.id);
                 };
                 const handleDeleteClick = () => {
                     console.log("delete")
@@ -40,7 +42,7 @@ export const Incomes = ({ ingresoProps }: IngresoProps) => {
                             <p>{ingreso.descripcion}</p>
                             <p>Categoria: {ingreso.categoria.nombre}</p>
                         </div>
-                        {edit ? <EditarIngreso ingreso={ingreso} setEdit={setEdit}/> : null}
+                        {edit && editId === ingreso.id ? <EditarIngreso ingreso={ingreso} setEdit={setEdit}/> : null}
                     </div>
                 );
             }));
