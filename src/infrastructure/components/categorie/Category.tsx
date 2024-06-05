@@ -1,94 +1,58 @@
 import {Header} from "../Header.tsx";
 import {Categories} from "./Categories.tsx";
-import {useContext, useState} from "react";
-import {UserContext} from "../UserContext.tsx";
+import { useEffect, useState} from "react";
+import { UsuarioDTO } from "../../http/dto/UsuarioDTO.ts";
+import { ConsultarCategoriasAPI } from "../../http/api/categoria/ConsultarCategoriasAPI.ts";
+import { CategoriaDTO } from "../../http/dto/CategoriaDTO.ts";
 
 export function Category(){
-    const {user} = useContext(UserContext);
+    const [categorias, setCategorias] = useState<CategoriaDTO[]>([]);
     const [search, setSearch] = useState("");
-    const categories = [
-        {
-            id: "1",
-            nombre: "Comida",
-            descripcion: "Gastos de comida",
-            usuario: {
-                id: "1",
-                nombre: "Juan",
-                apellido: "Perez",
-                contrasena: "",
-                correo: ""
-            }
-        },
-        {
-            id: "2",
-            nombre: "Transporte",
-            descripcion: "Gastos de transporte",
-            usuario: {
-                id: "1",
-                nombre: "Juan",
-                apellido: "Perez",
-                contrasena: "",
-                correo: ""
-            }
-        },
-        {
-            id: "3",
-            nombre: "Salud",
-            descripcion: "Gastos de salud",
-            usuario: {
-                id: "1",
-                nombre: "Juan",
-                apellido: "Perez",
-                contrasena: "",
-                correo: ""
-            }
-        },
-        {
-            id: "4",
-            nombre: "Educación",
-            descripcion: "Gastos de educación",
-            usuario: {
-                id: "1",
-                nombre: "Juan",
-                apellido: "Perez",
-                contrasena: "",
-                correo: ""
-            }
-        },
-        {
-            id: "5",
-            nombre: "Entretenimiento",
-            descripcion: "Gastos de entretenimiento",
-            usuario: {
-                id: "1",
-                nombre: "Juan",
-                apellido: "Perez",
-                contrasena: "",
-                correo: ""
-            }
+
+    let usuarioDTO: UsuarioDTO = new UsuarioDTO();
+    const user = localStorage.getItem('user');
+    if (user) {
+        usuarioDTO = new UsuarioDTO(JSON.parse(user));
+    }
+
+    useEffect(() => {
+        if (usuarioDTO?.id) {
+            const consultarCategoriasAPI = new ConsultarCategoriasAPI(usuarioDTO?.id);
+            const response = consultarCategoriasAPI.consultarCategorias();
+            response.then((res) => {
+                const categoriaData = res.data.data.map((categoriaData: CategoriaDTO) => {
+                    const categoria = new CategoriaDTO();
+                    categoria.id = categoriaData.id;
+                    categoria.descripcion = categoriaData.descripcion;
+                    categoria.nombre = categoriaData.nombre;
+                    return categoria;
+                });
+                setCategorias(categoriaData);
+            });
         }
-        ]
+    }, [user, usuarioDTO?.id]);
+
     return(
-      <div>
-          <Header />
-          <div className="category__container">
-              <h2 className="categoria__titulo">Categorías</h2>
-              <section className="categorymanagement">
-                  <div className="categoria__acciones">
-                      <button className="categoria__boton">Agregar</button>
-                      <input
-                          className="categoria__buscador"
-                          type="text"
-                          placeholder="Buscar una categoria..."
-                          value={search}
-                          onChange={e => setSearch(e.target.value)}
-                      />
-                  </div>
-              </section>
-              <div className="category">
-                  <Categories user={user} categoriesProps={categories}/>
-              </div>
-          </div>
-      </div>
+        <div>
+            <Header />
+            <div className="category__container">
+                <h2 className="categoria__titulo">Categorías</h2>
+                <section className="categorymanagement">
+                    <div className="categoria__acciones">
+                        <button className="categoria__boton">Agregar</button>
+                        <input
+                            className="categoria__buscador"
+                            type="text"
+                            placeholder="Buscar una categoria..."
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                        />
+                    </div>
+                </section>
+                <div className="category">
+                    <Categories categoriesProps={categorias} setCategorias={setCategorias}/>
+                </div>
+            </div>
+        </div>
     );
 }

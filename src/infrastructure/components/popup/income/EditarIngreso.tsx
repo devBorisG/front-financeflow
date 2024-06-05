@@ -65,7 +65,7 @@ export const EditarIngreso = ({ ingreso, setEdit, onIngresoUpdated }: Readonly<E
             });
         }
         handleAcceptClick();
-    }
+    };
 
     return ReactDOM.createPortal(
         <div className="editar-ingreso">

@@ -4,5 +4,5 @@ export interface Categories{
     id: string,
     nombre: string,
     descripcion: string,
-    usuario: Usuario
+    usuarioDTO: Usuario
 }
