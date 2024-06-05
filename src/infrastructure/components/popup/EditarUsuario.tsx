@@ -5,9 +5,10 @@ import {ActualizarUsuarioAPI} from "../../http/api/usuario/ActualizarUsuarioAPI.
 interface EditarUsarioComponentProps{
     user: UsuarioDTO;
     setEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    onUserUpdated: () => void;
 }
 
-export const EditarUsuario = ({user, setEdit}: Readonly<EditarUsarioComponentProps>) => {
+export const EditarUsuario = ({user, setEdit, onUserUpdated}: Readonly<EditarUsarioComponentProps>) => {
     const [nombre, setNombre] = useState(user.nombre);
     const [apellido, setApellido] = useState(user.apellido);
     const [correo, setCorreo] = useState(user.correo);
@@ -28,6 +29,7 @@ export const EditarUsuario = ({user, setEdit}: Readonly<EditarUsarioComponentPro
         const response = actualizarUsuarioAPI.actualizarUsuario();
         response.then((res) => {
             console.log(res.data.messages[0].level);
+            onUserUpdated();
         }).catch((err) => {
             if (err.response.data.messages){
                 console.log(err.response.data.messages[0].level);

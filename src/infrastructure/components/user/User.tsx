@@ -5,12 +5,16 @@ import {EditarUsuario} from "../popup/EditarUsuario.tsx";
 import {CambiarContrasena} from "../popup/CambiarContrasena.tsx";
 import {useNavigate} from "react-router-dom";
 import {EliminarUsuarioAPI} from "../../http/api/usuario/EliminarUsuarioAPI.ts";
+import { ActualizarUsuarioAPI } from '../../http/api/usuario/ActualizarUsuarioAPI';
+import { UsuarioDTO } from "../../http/dto/UsuarioDTO.ts";
+import { useCookies } from "react-cookie";
 
 export function User(){
-    let navigate = useNavigate();
-    const {user} = useContext(UserContext);
+    const navigate = useNavigate();
+    const {user, setUser} = useContext(UserContext);
     const [edit, setEdit] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
+    const [, , removeCookie] = useCookies(['token']);
 
 
     const handleEditClick = () => {
@@ -20,11 +24,28 @@ export function User(){
         setEditPassword(true);
     };
 
+    const handleUserUpdated = async () => {
+        const actualizarUsuarioAPI = new ActualizarUsuarioAPI(new UsuarioDTO({
+            id: user ? user.id : "",
+            nombre: user ? user.nombre : "",
+            apellido: user ? user.apellido : "",
+            correo: user ? user.correo : "",
+            contrasena: user ? user.contrasena : "",
+        }));
+        const response = actualizarUsuarioAPI.actualizarUsuario();
+        response.then((res) => {
+            console.log(res.data.messages[0].level);
+            setUser(res.data.data[0] as UsuarioDTO);
+        });
+    }
+
     const handleDeleteClick = () => {
-        const eliminarUsuarioAPI = new EliminarUsuarioAPI(user ? user.id: "");
+        const eliminarUsuarioAPI = new EliminarUsuarioAPI(user ? user.id : "");
         const response = eliminarUsuarioAPI.eliminarUsuario();
         response.then((res) => {
             console.log(res.data.messages[0].level);
+            localStorage.removeItem('user');
+            removeCookie('token', { path: '/' });
             alert("Cuenta eliminada");
             navigate('/', { replace: true });
         }).catch((err) => {
@@ -64,7 +85,7 @@ export function User(){
                     <button className="usuario__button button__eliminar" onClick={handleDeleteClick}>Eliminar Cuenta</button>
                 </section>
             </div>
-            {edit && user ? <EditarUsuario user={user} setEdit={setEdit}/> : null}
+            {edit && user ? <EditarUsuario user={user} setEdit={setEdit} onUserUpdated={handleUserUpdated}/> : null}
             {editPassword && user ? <CambiarContrasena user={user} setEditPassword={setEditPassword}/> : null}
             {edit||editPassword ? <div className="usuario__overlay"></div> : null}
         </div>
