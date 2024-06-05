@@ -41,10 +41,10 @@ export function Login(){
         const response = loginUsuarioAPI.ingresarUsuario();
         response.then((res) => {
             setCookie('token', res.data.token, { path: '/' });
-
-            usuario.id = res.data.data[0].id;
-            usuario.nombre = res.data.data[0].nombre;
-            usuario.apellido = res.data.data[0].apellido;
+            const usuarioResponse = new UsuarioDTO(res.data.data[0] as UsuarioDTO);
+            usuario.id = usuarioResponse.id;
+            usuario.nombre = usuarioResponse.nombre;
+            usuario.apellido = usuarioResponse.apellido;
 
             setUser(usuario);
             navigate('/dashboard', { replace: true });
