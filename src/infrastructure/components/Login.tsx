@@ -9,7 +9,7 @@ import {IngresarUsuarioAPI} from "../http/api/usuario/IngresarUsuarioAPI.ts";
 import {UserContext} from "./UserContext.tsx";
 
 export function Login(){
-    cost navigate = useNavigate();
+    const navigate = useNavigate();
     const {setUser} = React.useContext(UserContext);
     const [showPassword, setShowPassword] = useState(false);
     const [correo, setCorreo] = useState("");

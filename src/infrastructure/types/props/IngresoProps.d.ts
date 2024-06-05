@@ -1,5 +1,4 @@
-import {UsuarioDTO} from "../../http/dto/UsuarioDTO.ts";
-
 export type IngresoProps = {
     ingresoProps: IngresoTypes[];
+    setIngresos: React.Dispatch<React.SetStateAction<IngresoTypes[]>>;
 }

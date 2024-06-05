@@ -4,13 +4,15 @@ import { IngresoDTO } from "../../../http/dto/IngresoDTO";
 import React, { useEffect } from "react";
 import { UsuarioDTO } from "../../../http/dto/UsuarioDTO";
 import { CategoriaDTO } from "../../../http/dto/CategoriaDTO";
+import ReactDOM from "react-dom";
 
 export interface EditarIngresoComponentProps{
     ingreso: IngresoDTO;
     setEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    onIngresoUpdated: () => void;
 }
 
-export const EditarIngreso = ({ ingreso, setEdit }: Readonly<EditarIngresoComponentProps>) => {
+export const EditarIngreso = ({ ingreso, setEdit, onIngresoUpdated }: Readonly<EditarIngresoComponentProps>) => {
     const [nombre, setNombre] = React.useState(ingreso.nombre);
     const [descripcion, setDescripcion] = React.useState(ingreso.descripcion);
     const [monto, setMonto] = React.useState(ingreso.monto);
@@ -52,6 +54,7 @@ export const EditarIngreso = ({ ingreso, setEdit }: Readonly<EditarIngresoCompon
             const response = actualizarIngresoAPI.actualizarIngreso();
             response.then((res) => {
                 console.log(res.data.messages[0].level);
+                onIngresoUpdated();
             }).catch((err) => {
                 if (err.response.data.messages){
                     console.log(err.response.data.messages[0].level);
@@ -64,7 +67,7 @@ export const EditarIngreso = ({ ingreso, setEdit }: Readonly<EditarIngresoCompon
         handleAcceptClick();
     }
 
-    return (
+    return ReactDOM.createPortal(
         <div className="editar-ingreso">
             <h1 className="editar-ingreso__titulo">Informacion</h1>
             <form className="editar-ingreso__formulario" onSubmit={handleSubmit}>
@@ -146,7 +149,12 @@ export const EditarIngreso = ({ ingreso, setEdit }: Readonly<EditarIngresoCompon
                         ))}
                     </select>
                 </label>
+                <section className="usuario__buttons">
+                    <button type="submit" className="editar-usuario__button">Aceptar</button>
+                    <button type="button" className="usuario__button button__eliminar" onClick={handleAcceptClick}>Cancelar</button>
+                </section>
             </form>
-        </div>
+        </div>,
+        document.body
     );
 }

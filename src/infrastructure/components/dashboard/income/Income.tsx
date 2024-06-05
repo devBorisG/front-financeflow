@@ -44,7 +44,7 @@ export function Income(){
                 <h2 className="income__titulo">Ingresos</h2>
                 <button className="registro__form__button income__button" onClick={handleCreateClick}>Agregar Ingreso</button>
                 <div className="income">
-                    <Incomes ingresoProps={ingresos}/>
+                    <Incomes ingresoProps={ingresos} setIngresos={setIngresos}/>
                 </div>
                 {create ? <AgregarIngreso setCreate={setCreate} setIngresos={setIngresos}/> : null}
                 {create ? <div className="usuario__overlay"></div> : null}

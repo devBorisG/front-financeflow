@@ -4,7 +4,7 @@ export interface BackendResponse {
             level: string,
             content: string,
         }[];
-        data: any[];
+        data: unknown[];
         token: string;
     }
 }
