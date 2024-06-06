@@ -4,10 +4,16 @@ import { useEffect, useState} from "react";
 import { UsuarioDTO } from "../../http/dto/UsuarioDTO.ts";
 import { ConsultarCategoriasAPI } from "../../http/api/categoria/ConsultarCategoriasAPI.ts";
 import { CategoriaDTO } from "../../http/dto/CategoriaDTO.ts";
+import { AgregarCategoria } from "../popup/category/AgregarCategoria.tsx";
 
 export function Category(){
     const [categorias, setCategorias] = useState<CategoriaDTO[]>([]);
     const [search, setSearch] = useState("");
+    const [create, setCreate] = useState(false);
+
+    const handleCreateClick = () => {
+        setCreate(true);
+    };
 
     let usuarioDTO: UsuarioDTO = new UsuarioDTO();
     const user = localStorage.getItem('user');
@@ -39,7 +45,7 @@ export function Category(){
                 <h2 className="categoria__titulo">Categorías</h2>
                 <section className="categorymanagement">
                     <div className="categoria__acciones">
-                        <button className="categoria__boton">Agregar</button>
+                        <button className="categoria__boton" onClick={handleCreateClick}>Agregar</button>
                         <input
                             className="categoria__buscador"
                             type="text"
@@ -52,6 +58,8 @@ export function Category(){
                 <div className="category">
                     <Categories categoriesProps={categorias} setCategorias={setCategorias}/>
                 </div>
+                {create ? <AgregarCategoria setCreate={setCreate} setCategorias={setCategorias}/> : null}
+                {create ? <div className="usuario__overlay"></div> : null}
             </div>
         </div>
     );
