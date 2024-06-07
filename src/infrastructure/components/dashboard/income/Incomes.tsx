@@ -13,8 +13,6 @@ export const Incomes = ({ ingresoProps, setIngresos }: IngresoProps) => {
     const [edit, setEdit] = useState(false);
     const [editId, setEditId] = useState(0);
 
-
-
     const handleIngresoUpdate = () => {
         let usuarioDTO: UsuarioDTO = new UsuarioDTO();
         const user = localStorage.getItem('user');

@@ -1,8 +1,8 @@
-import {Income} from "./income/Income.tsx";
-import {Expense} from "./Expense.tsx";
-import {useState} from "react";
+import { Income } from "./income/Income.tsx";
+import { Expense } from "./expense/Expense.tsx";
+import { useState } from "react";
 
-export function Wallet(){
+export function Wallet() {
     const [activeButton, setActiveButton] = useState("Ingresos");
 
     return (
@@ -13,8 +13,8 @@ export function Wallet(){
                     <button className="registro__form__button" onClick={() => setActiveButton("Egresos")}>Egresos</button>
                 </div>
                 <div className="wallet__division">
-                    {activeButton === "Ingresos" && <Income/>}
-                    {activeButton === "Egresos" && <Expense/>}
+                    {activeButton === "Ingresos" && <Income />}
+                    {activeButton === "Egresos" && <Expense />}
                 </div>
             </section>
         </div>

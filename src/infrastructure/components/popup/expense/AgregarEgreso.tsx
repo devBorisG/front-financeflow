@@ -1,16 +1,16 @@
-import React, {useEffect} from "react";
-import {CrearIngresoAPI} from "../../../http/api/ingreso/CrearIngresoAPI.ts";
-import {IngresoDTO} from "../../../http/dto/IngresoDTO.ts";
-import {UsuarioDTO} from "../../../http/dto/UsuarioDTO.ts";
-import {CategoriaDTO} from "../../../http/dto/CategoriaDTO.ts";
-import {ConsultarCategoriasAPI} from "../../../http/api/categoria/ConsultarCategoriasAPI.ts";
+import { EgresoDTO } from "../../../http/dto/EgresoDTO";
+import React, { useEffect } from "react";
+import { CategoriaDTO } from "../../../http/dto/CategoriaDTO";
+import { ConsultarCategoriasAPI } from "../../../http/api/categoria/ConsultarCategoriasAPI";
+import { UsuarioDTO } from "../../../http/dto/UsuarioDTO";
+import { CrearEgresoAPI } from "../../../http/api/egreso/CrearEgresoAPI";
 
-interface CrearIngresoComponentProps{
+interface CrearEgresoComponentProps{
     setCreate: React.Dispatch<React.SetStateAction<boolean>>;
-    setIngresos: React.Dispatch<React.SetStateAction<IngresoDTO[]>>
+    setEgresos: React.Dispatch<React.SetStateAction<EgresoDTO[]>>
 }
 
-export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoComponentProps>) => {
+export const AgregarEgreso = ({setCreate, setEgresos}: Readonly<CrearEgresoComponentProps>) => {
     const [nombre, setNombre] = React.useState("");
     const [descripcion, setDescripcion] = React.useState("");
     const [monto, setMonto] = React.useState(0);
@@ -40,7 +40,7 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
         }
         const user = localStorage.getItem('user');
         if (user) {
-            const crearIngresoAPI = new CrearIngresoAPI(new IngresoDTO({
+            const crearEgresoAPI = new CrearEgresoAPI(new EgresoDTO({
                 id: '',
                 nombre: nombre,
                 descripcion: descripcion,
@@ -49,26 +49,26 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
                 usuario: new UsuarioDTO(JSON.parse(user)),
                 categoria: categoria
             }));
-            const response = crearIngresoAPI.crearIngreso();
+            const response = crearEgresoAPI.crearEgreso();
             response.then((res) => {
                 console.log(res.data.data[0]);
-                const newIngreso = res.data.data[0];
-                setIngresos((ingresos: IngresoDTO[]) => [...ingresos, newIngreso] as IngresoDTO[]);
+                const newEgreso = res.data.data[0];
+                setEgresos((egresos: EgresoDTO[]) => [...egresos, newEgreso] as EgresoDTO[]);
             }).catch((err) => {
                 if (err.response.data.messages){
                     console.log(err.response.data.messages[0].level);
                     console.log(err.response.data.messages[0].content);
-                }else {
+                }else{
                     console.log(err);
                 }
             });
         }
         handleAcceptClick();
-    }
+    };
 
     return (
         <div className="agregar-ingreso">
-            <h1 className="agregar-ingreso__titulo">Agregar Ingreso</h1>
+            <h1 className="agregar-ingreso__titulo">Agregar Egreso</h1>
             <form className="agregar-ingreso__formulario" onSubmit={handleSubmit}>
                 <label className="agregar-ingreso__label">
                     Nombre:<input
@@ -155,5 +155,5 @@ export const AgregarIngreso = ({setCreate, setIngresos}: Readonly<CrearIngresoCo
                 </section>
             </form>
         </div>
-    );
+    )
 }

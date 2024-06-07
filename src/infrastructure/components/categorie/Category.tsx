@@ -10,7 +10,7 @@ export function Category(){
     const [categorias, setCategorias] = useState<CategoriaDTO[]>([]);
     const [search, setSearch] = useState("");
     const [create, setCreate] = useState(false);
-
+    let categoriasFiltradas:CategoriaDTO[] = [];
     const handleCreateClick = () => {
         setCreate(true);
     };
@@ -38,6 +38,15 @@ export function Category(){
         }
     }, [user, usuarioDTO?.id]);
 
+    if(search === ''){
+        categoriasFiltradas = categorias;
+    }else{
+        categoriasFiltradas = categorias.filter((categoria) => {
+            return categoria.nombre.toLowerCase().includes(search.toLowerCase());
+        });
+        console.log(categoriasFiltradas);
+    }
+
     return(
         <div>
             <Header />
@@ -56,7 +65,7 @@ export function Category(){
                     </div>
                 </section>
                 <div className="category">
-                    <Categories categoriesProps={categorias} setCategorias={setCategorias}/>
+                    <Categories categoriesProps={categoriasFiltradas} setCategorias={setCategorias}/>
                 </div>
                 {create ? <AgregarCategoria setCreate={setCreate} setCategorias={setCategorias}/> : null}
                 {create ? <div className="usuario__overlay"></div> : null}
