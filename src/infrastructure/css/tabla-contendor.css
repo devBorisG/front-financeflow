@@ -1,0 +1,21 @@
+.tabla-contenedor {
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.tabla-contenedor .rdt_TableCell {
+    font-size: 18px;
+}
+
+.tabla-contenedor .rdt_TableHeadRow {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icon-table{
+    position: static;
+    width: 40px;
+}

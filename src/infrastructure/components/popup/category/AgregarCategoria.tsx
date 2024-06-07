@@ -4,7 +4,7 @@ import { UsuarioDTO } from "../../../http/dto/UsuarioDTO";
 import { CrearCategoriaAPI } from "../../../http/api/categoria/CrearCategoriaAPI";
 
 interface CrateCategoriaComponentProps{
-setCreate: React.Dispatch<React.SetStateAction<boolean>>;
+    setCreate: React.Dispatch<React.SetStateAction<boolean>>;
     setCategorias: React.Dispatch<React.SetStateAction<CategoriaDTO[]>>
 }
 
