@@ -8,6 +8,8 @@ import {AgregarIngreso} from "../../popup/income/AgregarIngreso.tsx";
 export function Income(){
     const [ingresos, setIngresos] = useState<IngresoDTO[]>([]);
     const [create, setCreate] = useState(false);
+    const [search, setSearch] = useState("");
+    let ingresosFiltrados: IngresoDTO[] = [];
 
     const handleCreateClick = () => {
         setCreate(true);
@@ -39,12 +41,29 @@ export function Income(){
         }
     }, [user, usuarioDTO?.id]);
 
+    if(search === ''){
+        ingresosFiltrados = ingresos;
+    }else{
+        ingresosFiltrados = ingresos.filter((ingreso) => {
+            return ingreso.nombre.toLowerCase().includes(search.toLowerCase());
+        });
+    }
+
     return (
         <div className="income__container">
                 <h2 className="income__titulo">Ingresos</h2>
-                <button className="registro__form__button income__button" onClick={handleCreateClick}>Agregar Ingreso</button>
+                <div className="categoria__acciones">
+                    <button className="registro__form__button income__button" onClick={handleCreateClick}>Agregar Ingreso</button>
+                    <input
+                            className="categoria__buscador"
+                            type="text"
+                            placeholder="Buscar un ingreso..."
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                        />
+                </div>
                 <div className="income">
-                    <Incomes ingresoProps={ingresos} setIngresos={setIngresos}/>
+                    <Incomes ingresoProps={ingresosFiltrados} setIngresos={setIngresos}/>
                 </div>
                 {create ? <AgregarIngreso setCreate={setCreate} setIngresos={setIngresos}/> : null}
                 {create ? <div className="usuario__overlay"></div> : null}

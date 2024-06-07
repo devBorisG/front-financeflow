@@ -11,6 +11,7 @@ export function Category(){
     const [search, setSearch] = useState("");
     const [create, setCreate] = useState(false);
     let categoriasFiltradas:CategoriaDTO[] = [];
+
     const handleCreateClick = () => {
         setCreate(true);
     };
@@ -44,7 +45,6 @@ export function Category(){
         categoriasFiltradas = categorias.filter((categoria) => {
             return categoria.nombre.toLowerCase().includes(search.toLowerCase());
         });
-        console.log(categoriasFiltradas);
     }
 
     return(
@@ -54,7 +54,7 @@ export function Category(){
                 <h2 className="categoria__titulo">Categorías</h2>
                 <section className="categorymanagement">
                     <div className="categoria__acciones">
-                        <button className="categoria__boton" onClick={handleCreateClick}>Agregar</button>
+                        <button className="categoria__boton" onClick={handleCreateClick}>Agregar Categoria</button>
                         <input
                             className="categoria__buscador"
                             type="text"

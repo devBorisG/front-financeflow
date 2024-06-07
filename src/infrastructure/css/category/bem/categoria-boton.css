@@ -7,6 +7,7 @@
     background-color: var(--color-cuaternario);
     color: var(--color-fuente-primario);
     font-size: 1.1rem;
+    font-family: var(--fuente-contenido);
 }
 
 .categoria__boton:hover{

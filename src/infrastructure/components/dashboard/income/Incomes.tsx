@@ -72,8 +72,8 @@ export const Incomes = ({ ingresoProps, setIngresos }: IngresoProps) => {
                         <MdDelete className="delete-icon" onClick={handleDeleteClick} />
                         <div className="incomes">
                             <h1>{ingreso.nombre}</h1>
-                            <p>{ingreso.descripcion}</p>
-                            <p>Categoria: {ingreso.categoria.nombre}</p>
+                            <p><b>Descripcion:</b> {ingreso.descripcion}</p>
+                            <p><b>Categoria:</b> {ingreso.categoria.nombre}</p>
                         </div>
                         {edit && editId === ingreso.id ? <EditarIngreso ingreso={ingreso} setEdit={setEdit} onIngresoUpdated={handleIngresoUpdate}/> : null}
                         {edit && editId === ingreso.id ? ReactDOM.createPortal(<div className="usuario__overlay"></div>, document.body) : null}
