@@ -13,22 +13,22 @@ export const ColumnsIngresoConfig = ({ handleIngresoUpdate }: ColumnProps) => [
     },
     {
         name: 'Descripcion',
-        selector: (row: IngresoDTO) => row.descripcion, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: IngresoDTO) => row.descripcion,
         sortable: true,
     },
     {
         name: 'Monto',
-        selector: (row: IngresoDTO) => row.monto, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: IngresoDTO) => row.monto.toLocaleString('es-ES', { style: 'currency', currency: 'COP' }),
         sortable: true,
     },
     {
-        name: 'Periodicidad',
-        selector: (row: IngresoDTO) => row.periodicidad, // Adjust the selector according to your DTO file (EgresoDTO
+        name: 'Periodicidad (En días)',
+        selector: (row: IngresoDTO) => row.periodicidad,
         sortable: true,
     },
     {
         name: 'Categoria',
-        selector: (row: IngresoDTO) => row.categoria.nombre, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: IngresoDTO) => row.categoria.nombre,
         sortable: true,
     },
     {

@@ -37,12 +37,6 @@ export const NavigateBar = ({ show, setShow }: NavigateBarProps)=>{
                         </Link>
                     </li>
                     <li>
-                        <Link to="/budgets">
-                            <FaDollarSign/>
-                            Mis Presupuestos
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/categorie">
                             <MdCategory/>
                             Mis categorias

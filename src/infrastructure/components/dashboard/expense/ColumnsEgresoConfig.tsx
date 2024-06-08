@@ -1,5 +1,5 @@
-import { EgresoDTO } from '../../../http/dto/EgresoDTO'; // Adjust the import according to your types file
-import { AccionesEgreso } from './AccionesEgreso';// Adjust the import according to your components file
+import { EgresoDTO } from '../../../http/dto/EgresoDTO';
+import { AccionesEgreso } from './AccionesEgreso';
 
 interface ColumnProps {
     handleEgresoUpdate: () => void;
@@ -13,22 +13,22 @@ export const ColumnsEgresoConfig = ({ handleEgresoUpdate }: ColumnProps) => [
     },
     {
         name: 'Descripcion',
-        selector: (row: EgresoDTO) => row.descripcion, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: EgresoDTO) => row.descripcion,
         sortable: true,
     },
     {
         name: 'Monto',
-        selector: (row: EgresoDTO) => row.monto, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: EgresoDTO) => row.monto.toLocaleString('es-ES', { style: 'currency', currency: 'COP' }),
         sortable: true,
     },
     {
         name: 'Periodicidad',
-        selector: (row: EgresoDTO) => row.periodicidad, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: EgresoDTO) => row.periodicidad,
         sortable: true,
     },
     {
         name: 'Categoria',
-        selector: (row: EgresoDTO) => row.categoria.nombre, // Adjust the selector according to your DTO file (EgresoDTO
+        selector: (row: EgresoDTO) => row.categoria.nombre,
         sortable: true,
     },
     {

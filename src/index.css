@@ -15,3 +15,7 @@
 @import url('infrastructure/css/income/income.css');
 @import url('infrastructure/css/editaringreso/editar-ingreso.css');
 @import url('infrastructure/css/tabla-contendor.css');
+@import url('infrastructure/css/estadisticas.css');
+
+@tailwind components;
+@tailwind utilities;

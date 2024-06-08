@@ -39,7 +39,7 @@ export const Expenses = ({egresoProps, setEgresos}: EgresoProps) => {
         return <div className="no-content">No tienes egresos registrados actualmente</div>;
     }else{
         return(
-            <div>
+            <div className="tabla-contenedor">
                 <DataTable
                     columns={columns}
                     data={egresoProps}

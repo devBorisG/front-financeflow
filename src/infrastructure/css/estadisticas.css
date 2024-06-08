@@ -1,0 +1,27 @@
+.estadisticas__container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Esto permite que los elementos pasen a la siguiente línea si no hay suficiente espacio */
+    gap: 20px; /* Espacio entre los componentes Card */
+}
+
+.card{
+    margin: 10px;
+    font-family: var(--fuente-contenido);
+}
+
+.ingresos__charts{
+    width: 100%;
+}
+
+.estadisticas__cards{
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+}
+
+.cardStyle {
+    border: 1px solid #ccc; /* Ajusta el color del borde según necesites */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajusta la sombra según necesites */
+    transition: all 0.3s ease-in-out; /* Opcional: para un efecto suave al cambiar el estilo */
+}
